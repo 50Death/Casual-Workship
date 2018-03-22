@@ -228,7 +228,7 @@ namespace OnlineClassCheats
                 adv++;
                 this.Width = 710;
                 timer1.Enabled = true;
-                btn_Adv.Text = "<<收回";
+                btn_Adv.Text = "收起<<";
             }
             else
             {

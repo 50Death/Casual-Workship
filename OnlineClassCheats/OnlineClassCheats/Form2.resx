@@ -117,4 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>网课助手使用条例
+使用条例：
+本程序作为学习使用，任何不当用途（包括但不限于：用来盈利、非法使用）均与作者无关
+使用本程序表示您以同意本条款，所造成的一切后果与制作者无关
+本程序著作权归制作者所有，禁止二次加工并用于其他用途
+
+程序优点：
+本程序采用颜色识别、虚拟鼠标点击方式，实现自动回答超星慕课网的中间问题从而避免了系统检测
+
+实现原理：
+如果您对原理有任何异议或者认为存在风险，请您停止使用！
+获取并检测网课视频四周固定像素的颜色，当题目弹出时，像素颜色变化，自动鼠标操作完成答题
+
+希望取得源代码？
+https://github.com/50Death/Casual-Workship
+
+Copyright@xX50DeathXx.2018-2099</value>
+  </data>
 </root>

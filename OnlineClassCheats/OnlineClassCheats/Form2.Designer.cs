@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -42,18 +43,18 @@
             this.textBox1.Location = new System.Drawing.Point(12, 50);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(326, 230);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "使用条例：\r\n本程序作为学习使用，任何不当用途（包括但不限于：用来盈利、非法使用）均与作者无关\r\n使用本程序表示您以同意本条款，所造成的一切后果与制作者无关\r\n\r" +
-    "\n程序原理：\r\n本程序采用颜色识别、虚拟鼠标点击方式，实现自动回答超星慕课网的中间问题\r\n本程序采用先选A判断正误，而后再选B的方式，如果您对回答正误十分在意，" +
-    "请勿使用\r\n\r\n";
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(12, 313);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 12);
+            this.label1.Size = new System.Drawing.Size(272, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "我已阅读并同意如上免责条款，并希望继续使用：\r\n";
             // 
@@ -68,6 +69,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(24, 411);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 30);
@@ -78,6 +80,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button2.Location = new System.Drawing.Point(208, 411);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(105, 30);
@@ -114,7 +117,7 @@
             this.Name = "Form2";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "使用须知";
             this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
