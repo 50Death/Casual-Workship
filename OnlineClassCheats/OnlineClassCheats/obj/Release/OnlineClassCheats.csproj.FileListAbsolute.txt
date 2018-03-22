@@ -10,3 +10,8 @@ E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineCla
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.exe
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.pdb
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.csprojResolveAssemblyReference.cache
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\bin\Release\OnlineClassCheats.exe.manifest
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\bin\Release\OnlineClassCheats.application
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.TrustInfo.xml
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.exe.manifest
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Release\OnlineClassCheats.application

@@ -10,3 +10,8 @@ E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClass
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClassCheats.Form2.resources
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClassCheats.Form3.resources
 E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\bin\Debug\OnlineClassCheats.exe.config
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\bin\Debug\OnlineClassCheats.exe.manifest
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\bin\Debug\OnlineClassCheats.application
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClassCheats.TrustInfo.xml
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClassCheats.exe.manifest
+E:\C#\WebClassAutoPlay\OnlineClassCheats\OnlineClassCheats\obj\Debug\OnlineClassCheats.application

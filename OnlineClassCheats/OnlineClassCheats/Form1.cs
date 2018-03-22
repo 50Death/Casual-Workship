@@ -24,19 +24,19 @@ namespace OnlineClassCheats
 
         public int sx1 = 800;
         public int sy1 = 360;
-        public string sc1 = "Color[A = 255, R = 0, G = 0, B = 0]";
+        public string sc1 = "Color [A=255, R=0, G=0, B=0]";
 
         public int sx2 = 1450;
         public int sy2 = 360;
-        public string sc2= "Color[A = 255, R = 0, G = 0, B = 0]";
+        public string sc2= "Color [A=255, R=0, G=0, B=0]";
 
         public int sx3 = 800;
         public int sy3 = 830;
-        public string sc3 = "Color[A = 255, R = 0, G = 0, B = 0]";
+        public string sc3 = "Color [A=255, R=0, G=0, B=0]";
 
         public int sx4 = 1450;
         public int sy4 = 830;
-        public string sc4 = "Color[A = 255, R = 0, G = 0, B = 0]";
+        public string sc4 = "Color [A=255, R=0, G=0, B=0]";
 
         //1920*1080坐标
         public int QAxHD = 0;
@@ -138,7 +138,7 @@ namespace OnlineClassCheats
         {
             if (btn_Start_Counter == 0)
             {
-                MessageBox.Show("开始！\n 请将此窗口拖至视频外！！！");
+                MessageBox.Show("开始！\n 请将此窗口拖至视频外！！！\n保持视频窗口无其他窗口阻挡\n视频可以播放");
                 timer2.Enabled = true;
                 btn_Start.Text = "结束";
                 btn_Start_Counter++;

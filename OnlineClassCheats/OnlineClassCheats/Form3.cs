@@ -23,7 +23,7 @@ namespace OnlineClassCheats
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://github.com/50Death/Casual-Workship");
         }
 
         private void label3_Click(object sender, EventArgs e)
