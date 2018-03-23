@@ -113,7 +113,7 @@
             this.cb_ResolutionSelector.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cb_ResolutionSelector.FormattingEnabled = true;
             this.cb_ResolutionSelector.Items.AddRange(new object[] {
-            "1920×1080(undo)",
+            "1920×1080",
             "2560×1080"});
             this.cb_ResolutionSelector.Location = new System.Drawing.Point(100, 87);
             this.cb_ResolutionSelector.Name = "cb_ResolutionSelector";
@@ -557,7 +557,7 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(77, 12);
             this.label29.TabIndex = 48;
-            this.label29.Text = "Version: 1.0";
+            this.label29.Text = "Version: 1.3";
             // 
             // label30
             // 
@@ -674,7 +674,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
-            this.Text = "网课助手（V1.0）";
+            this.Text = "网课助手（V1.3）";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

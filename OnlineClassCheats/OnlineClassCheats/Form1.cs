@@ -13,8 +13,33 @@ namespace OnlineClassCheats
 {
     public partial class Form1 : Form
     {
+        public int Resolution = 0;
+        //保存值所使用的公用选择坐标
+        public int pQAx = 1;
+        public int pQAy = 1;
+        public int pQBx = 1;
+        public int pQBy = 1;
+        public int pASx = 1;
+        public int pASy = 1;
+
+        public int pSX1 = 1;
+        public int pSY1 = 1;
+        public string pSC1 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int pSX2 = 1;
+        public int pSY2 = 1;
+        public string pSC2 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int pSX3 = 1;
+        public int pSY3 = 1;
+        public string pSC3 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int pSX4 = 1;
+        public int pSY4 = 1;
+        public string pSC4 = "Color [A=255, R=0, G=0, B=0]";
+
         //2560*1080坐标
-        public int QAx = 1120;//扫描点坐标
+        public int QAx = 1120;//答案坐标
         public int QAy = 485;
         public int QBx = 1120;
         public int QBy = 535;
@@ -22,7 +47,7 @@ namespace OnlineClassCheats
         public int ASy = 610;
         public int counter = 0;
 
-        public int sx1 = 800;
+        public int sx1 = 800;//扫描点坐标
         public int sy1 = 360;
         public string sc1 = "Color [A=255, R=0, G=0, B=0]";
 
@@ -39,13 +64,30 @@ namespace OnlineClassCheats
         public string sc4 = "Color [A=255, R=0, G=0, B=0]";
 
         //1920*1080坐标
-        public int QAxHD = 0;
-        public int QAyHD = 0;
-        public int QBxHD = 0;
-        public int QByHD = 0;
-        public int ASxHD = 0;
-        public int ASyHD = 0;
+        public int QAxHD = 800;
+        public int QAyHD = 485;
+        public int QBxHD = 800;
+        public int QByHD = 535;
+        public int ASxHD = 980;
+        public int ASyHD = 610;
+
         public int counterHD = 0;
+
+        public int sxHD1 = 480;
+        public int syHD1 = 360;
+        public string scHD1 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int sxHD2 = 1130;
+        public int syHD2 = 360;
+        public string scHD2 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int sxHD3 = 480;
+        public int syHD3 = 830;
+        public string scHD3 = "Color [A=255, R=0, G=0, B=0]";
+
+        public int sxHD4 = 1130;
+        public int syHD4 = 830;
+        public string scHD4 = "Color [A=255, R=0, G=0, B=0]";
 
         public Form1()
         {
@@ -58,9 +100,9 @@ namespace OnlineClassCheats
             }
             InitializeComponent();
             cb_ExplorerSelector.Items.Clear();
+            comboBox1_ini();
             cb_ResolutionSelector.SelectedIndex = 1;
             cb_ExplorerSelector.SelectedIndex = 0;
-            comboBox1_ini();
         }
 
         [DllImport("gdi32.dll")]
@@ -161,63 +203,190 @@ namespace OnlineClassCheats
             int y = int.Parse(mouseY.Text);
             tb_color.Text = GetPixelColor(x, y).ToString();
         }
+        /// <summary>
+        /// 根据分辨率来操作
+        /// </summary>
+        /// <param name="s">0对应2560*1080;1对应1920*1080</param>
+        private void RS(int s)
+        {
+            if (s == 0)
+            {
+                string color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                string color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                string color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                string color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+                if (tb_saveColor1.Text != color1 || tb_saveColor2.Text != color2 || tb_saveColor3.Text != color3 || tb_saveColor4.Text != color4)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(QAx, QAy);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(ASx, ASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                        AutoClick(QBx, QBy);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(ASx, ASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+
+                        AutoClick(ASx, ASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                    }
+                    if (tb_saveColor1.Text == color1 && tb_saveColor2.Text == color2 && tb_saveColor3.Text == color3 && tb_saveColor4.Text == color4)
+                    {
+                        timer2.Enabled = false;
+                        System.Environment.Exit(0);
+                    }
+                    counter++;
+                    if (counter > 0)
+                        System.Environment.Exit(0);
+                }
+            }
+            else if (s == 1)
+            {
+                string color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                string color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                string color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                string color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+                if (tb_saveColor1.Text != color1 || tb_saveColor2.Text != color2 || tb_saveColor3.Text != color3 || tb_saveColor4.Text != color4)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(QAxHD, QAyHD);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(ASxHD, ASyHD);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                        AutoClick(QBxHD, QByHD);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(ASxHD, ASyHD);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+
+                        AutoClick(ASxHD, ASyHD);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                    }
+                    if (tb_saveColor1.Text == color1 && tb_saveColor2.Text == color2 && tb_saveColor3.Text == color3 && tb_saveColor4.Text == color4)
+                    {
+                        timer2.Enabled = false;
+                        System.Environment.Exit(0);
+                    }
+                    counter++;
+                    if (counter > 0)
+                        System.Environment.Exit(0);
+                }
+            }
+            else if (s < 0)
+            {
+                string color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                string color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                string color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                string color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+                if (tb_saveColor1.Text != color1 || tb_saveColor2.Text != color2 || tb_saveColor3.Text != color3 || tb_saveColor4.Text != color4)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(pQAx, pQAy);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(pASx, pASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                        AutoClick(pQBx, pQBy);
+                        System.Threading.Thread.Sleep(500);
+                        AutoClick(pASx, pASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+
+                        AutoClick(pASx, pASy);
+                        System.Threading.Thread.Sleep(2000);
+
+                        color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
+                        color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
+                        color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
+                        color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
+
+                        if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
+                            break;
+                    }
+                    if (tb_saveColor1.Text == color1 && tb_saveColor2.Text == color2 && tb_saveColor3.Text == color3 && tb_saveColor4.Text == color4)
+                    {
+                        timer2.Enabled = false;
+                        System.Environment.Exit(0);
+                    }
+                    counter++;
+                    if (counter > 0)
+                        System.Environment.Exit(0);
+                }
+            }
+            else
+                MessageBox.Show("Resolution Value WRONG! value=" + Resolution);
+        }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            string color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
-            string color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
-            string color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
-            string color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
-            if (tb_saveColor1.Text != color1 || tb_saveColor2.Text != color2 || tb_saveColor3.Text != color3 || tb_saveColor4.Text != color4)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    System.Threading.Thread.Sleep(500);
-                    AutoClick(QAx, QAy);
-                    System.Threading.Thread.Sleep(500);
-                    AutoClick(ASx, ASy);
-                    System.Threading.Thread.Sleep(2000);
-
-                    color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
-                    color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
-                    color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
-                    color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
-
-                    if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
-                        break;
-                    AutoClick(QBx, QBy);
-                    System.Threading.Thread.Sleep(500);
-                    AutoClick(ASx, ASy);
-                    System.Threading.Thread.Sleep(2000);
-
-                    color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
-                    color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
-                    color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
-                    color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
-
-                    if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
-                        break;
-
-                    AutoClick(ASx, ASy);
-                    System.Threading.Thread.Sleep(2000);
-
-                    color1 = GetPixelColor(int.Parse(tb_saveX1.Text), int.Parse(tb_saveY1.Text)).ToString();//当前颜色
-                    color2 = GetPixelColor(int.Parse(tb_saveX2.Text), int.Parse(tb_saveY2.Text)).ToString();
-                    color3 = GetPixelColor(int.Parse(tb_saveX3.Text), int.Parse(tb_saveY3.Text)).ToString();
-                    color4 = GetPixelColor(int.Parse(tb_saveX4.Text), int.Parse(tb_saveY4.Text)).ToString();
-
-                    if (tb_saveColor1.Text == color1 || tb_saveColor2.Text == color2 || tb_saveColor3.Text == color3 || tb_saveColor4.Text == color4)
-                        break;
-                }
-                if (tb_saveColor1.Text == color1 && tb_saveColor2.Text == color2 && tb_saveColor3.Text == color3 && tb_saveColor4.Text == color4)
-                {
-                    timer2.Enabled = false;
-                    System.Environment.Exit(0);
-                }
-                counter++;
-                if (counter > 0)
-                    System.Environment.Exit(0);
-            }
+            RS(Resolution);
         }
 
         public int adv = 0;
@@ -246,8 +415,15 @@ namespace OnlineClassCheats
 
         private void cb_ResolutionSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cb_ResolutionSelector.SelectedItem.ToString()=="2560×1080")
+            if (cb_ResolutionSelector.SelectedItem.ToString()=="2560×1080")
             {
+                Resolution = 0;
+                cb_ExplorerSelector.Items.Clear();
+                cb_ExplorerSelector.Items.Add("Google Chrome（全屏）");
+            }
+            else if(cb_ResolutionSelector.SelectedItem.ToString() == "1920×1080")
+            {
+                Resolution = 1;
                 cb_ExplorerSelector.Items.Clear();
                 cb_ExplorerSelector.Items.Add("Google Chrome（全屏）");
             }
@@ -255,13 +431,15 @@ namespace OnlineClassCheats
 
         private void cb_ExplorerSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_ExplorerSelector.SelectedItem.ToString() == "Google Chrome（全屏）")
+            if (cb_ExplorerSelector.SelectedItem.ToString() == "Google Chrome（全屏）" && cb_ResolutionSelector.SelectedItem.ToString() == "2560×1080")
                 setNumber(0);
+            else if (cb_ExplorerSelector.SelectedItem.ToString() == "Google Chrome（全屏）" && cb_ResolutionSelector.SelectedItem.ToString() == "1920×1080")
+                setNumber(1);
         }
 
         private void setNumber(int x)
         {
-            if(x==-1)
+            if(x==-1)//保存1
             {
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 tb_saveX1.Text = ConfigurationManager.AppSettings["SaveX_1_1"].ToString();
@@ -281,7 +459,7 @@ namespace OnlineClassCheats
                 tb_saveColor4.Text = ConfigurationManager.AppSettings["SaveC_1_4"].ToString();
             }
 
-            if(x==0)
+            if(x==0)//2560*1080
             {
                 tb_saveX1.Text = sx1.ToString();
                 tb_saveY1.Text = sy1.ToString();
@@ -298,6 +476,25 @@ namespace OnlineClassCheats
                 tb_saveX4.Text = sx4.ToString();
                 tb_saveY4.Text = sy4.ToString();
                 tb_saveColor4.Text = sc4;
+            }
+
+            if(x==1)//1920*1080
+            {
+                tb_saveX1.Text = sxHD1.ToString();
+                tb_saveY1.Text = syHD1.ToString();
+                tb_saveColor1.Text = scHD1;
+
+                tb_saveX2.Text = sxHD2.ToString();
+                tb_saveY2.Text = syHD2.ToString();
+                tb_saveColor2.Text = scHD2;
+
+                tb_saveX3.Text = sxHD3.ToString();
+                tb_saveY3.Text = syHD3.ToString();
+                tb_saveColor3.Text = scHD3;
+
+                tb_saveX4.Text = sxHD4.ToString();
+                tb_saveY4.Text = syHD4.ToString();
+                tb_saveColor4.Text = scHD4;
             }
         }
 
@@ -352,7 +549,26 @@ namespace OnlineClassCheats
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedItem.ToString() == "保存1")
+            {
                 setNumber(-1);
+                cb_ExplorerSelector.Items.Clear();
+                cb_ResolutionSelector.Items.Clear();
+                //cb_ResolutionSelector.SelectedValue = "";
+                //cb_ResolutionSelector.SelectedIndex = 2;
+
+                Resolution = -1;
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                string temp="";
+                temp = ConfigurationManager.AppSettings["SaveX_1_1"].ToString();
+                pQAx = int.Parse(temp) + 320;
+                temp = "";
+                temp = ConfigurationManager.AppSettings["SaveY_1_1"].ToString();
+                pQAy = int.Parse(temp) + 125;
+                pQBx = pQAx;
+                pQBy = pQAy + 50;
+                pASx = pQAx + 180;
+                pASy = pQBy + 75;
+            }
         }
     }
 }

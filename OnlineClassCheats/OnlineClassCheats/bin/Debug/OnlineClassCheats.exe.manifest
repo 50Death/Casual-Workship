@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnlineClassCheats.exe" size="143872">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OnlineClassCheats.exe" size="148992">
       <assemblyIdentity name="OnlineClassCheats" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TohPJaTmppeziPBHEWv/9HJJ97w=</dsig:DigestValue>
+        <dsig:DigestValue>6nUPIpKDPCr3u/bBWbsQI/Ve0CA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

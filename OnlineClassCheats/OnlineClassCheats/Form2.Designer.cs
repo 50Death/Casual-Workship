@@ -43,6 +43,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 50);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(326, 230);
             this.textBox1.TabIndex = 0;
@@ -116,6 +117,7 @@
             this.MinimizeBox = false;
             this.Name = "Form2";
             this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "使用须知";
             this.TopMost = true;
